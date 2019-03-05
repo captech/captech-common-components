@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--<mappings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation='pathMappings.xsd'>-->
+<mappings>
+    <!--Output Paths er paths on remote server-->
+    <!--/bbs/datafangst/pp4/data/to_host/eFaktura-->
+
+    <!--TROMS Fylkestrafikk-->
+
+    <mapping>
+        <serviceType>TRFNS</serviceType>
+        <id>202</id>
+        <output>
+            <path>/bbs/datafangst/pp4/data/to_host/eFaktura</path>
+        </output>
+    </mapping>
+    <mapping>
+        <serviceType>TRFNS</serviceType>
+        <id>203</id>
+        <output>
+            <path>/tTROTRA/Avvist</path>
+        </output>
+    </mapping>
+    <mapping>
+        <serviceType>TRFNM</serviceType>
+        <id>201</id>
+        <input>
+            <path>/cifs/datafangst/eScanning/netscan-eScanning</path>
+        </input>
+    </mapping>
+    <mapping>
+        <serviceType>TRFNM</serviceType>
+        <id>202</id>
+        <output>
+            <path>/bbs/datafangst/pp4/data/to_host/eFaktura</path>
+        </output>
+    </mapping>
+    <mapping>
+        <serviceType>TRFNM</serviceType>
+        <id>203</id>
+        <output>
+            <path>/tTROTRA/Avvist</path>
+        </output>
+    </mapping>
+</mappings>
