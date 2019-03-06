@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="osInformation" type="osInformationType"/>
+    <xs:complexType name="osInformationType">
+        <xs:sequence>
+            <xs:element type="dfInfoType" name="dfInfo" maxOccurs="1" minOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Some text</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element type="cpuInfoType" name="cpuInfo" maxOccurs="1" minOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Some text</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:sequence>
+                <xs:element type="memoryInfoType" name="memoryInfo" maxOccurs="1" minOccurs="1">
+                    <xs:annotation>
+                        <xs:documentation>Some text</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="dfInfoType">
+        <xs:sequence>
+            <xs:element minOccurs="1" maxOccurs="1" type="xs:int" name="status">
+                <xs:annotation>
+                    <xs:documentation>
+                        Has following values:
+                        0 = No error found
+                        50 = Partial file system error
+                        99 = System error
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="1" maxOccurs="1" type="fileSystemsType" name="fileSystems">
+                <xs:annotation>
+                    <xs:documentation>Some text</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="coreInfosType">
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" type="coreInfoType" name="coreInfo"/>
+            <xs:element minOccurs="0" maxOccurs="1" type="timeType" name="time"/>
+            <xs:element type="xs:string" name="systemError" maxOccurs="1" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="cpuInfoType">
+        <xs:sequence>
+            <xs:element minOccurs="1" maxOccurs="1" type="xs:int" name="status">
+                <xs:annotation>
+                    <xs:documentation>
+                        Has following values:
+                        0 = No error found
+                        50 = Partial cpu info system error
+                        99 = System error
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element type="coreInfosType" name="coreInfos"/>
+            <!--<xs:choice>-->
+            <!--<xs:element minOccurs="1" maxOccurs="1" type="coreInfoType" name="coreInfo"/>-->
+            <!--<xs:element minOccurs="1" maxOccurs="1" type="coreInfoErrorType" name="coreErrorInfo"/>-->
+            <!--</xs:choice>-->
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="memoryInfoType">
+        <xs:sequence>
+            <xs:element minOccurs="1" maxOccurs="1" type="xs:int" name="status">
+                <xs:annotation>
+                    <xs:documentation>
+                        Has following values:
+                        0 = No error found
+                        50 = Partial cpu info system error
+                        99 = System error
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="1" maxOccurs="1" type="memoriesType" name="memories"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="fileSystemsType">
+        <xs:choice>
+            <xs:element type="fileSystemType" name="fileSystem" maxOccurs="unbounded" minOccurs="0"/>
+            <xs:element type="xs:string" name="systemError" maxOccurs="1" minOccurs="1"/>
+        </xs:choice>
+    </xs:complexType>
+    <xs:complexType name="infoType">
+        <xs:sequence>
+            <xs:element minOccurs="1" maxOccurs="1" type="xs:string" name="dirName"/>
+            <xs:element minOccurs="1" maxOccurs="1" type="xs:string" name="devName"/>
+            <xs:element minOccurs="0" maxOccurs="1" type="xs:long" name="used"/>
+            <xs:element minOccurs="0" maxOccurs="1" type="xs:long" name="available"/>
+            <xs:element minOccurs="0" maxOccurs="1" type="xs:long" name="total"/>
+            <xs:element minOccurs="0" maxOccurs="1" type="xs:long" name="percentage"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="fileSystemType">
+        <xs:sequence>
+            <xs:element type="infoType" name="info" minOccurs="0" maxOccurs="1"/>
+            <xs:element type="xs:string" name="error" minOccurs="0" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+
+
+    <xs:complexType name="coreInfoType">
+        <xs:sequence>
+            <xs:element type="xs:string" name="vendor"/>
+            <xs:element type="xs:string" name="model"/>
+            <xs:element type="xs:string" name="mhz"/>
+            <xs:element type="xs:string" name="totalCpus"/>
+            <xs:element type="coreType" name="core" minOccurs="1" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="coreInfoErrorType">
+        <xs:sequence>
+            <xs:element maxOccurs="1" minOccurs="0" type="xs:string" name="vendor"/>
+            <xs:element maxOccurs="1" minOccurs="0" type="xs:string" name="model"/>
+            <xs:element maxOccurs="1" minOccurs="0" type="xs:string" name="mhz"/>
+            <xs:element maxOccurs="1" minOccurs="0" type="xs:string" name="totalCpus"/>
+            <xs:element type="xs:string" name="systemError" maxOccurs="1" minOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="coreType">
+        <xs:sequence>
+            <xs:element minOccurs="1" maxOccurs="1" type="xs:int" name="id"/>
+            <xs:element minOccurs="1" maxOccurs="1" type="timeType" name="time"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="timeType">
+        <xs:sequence>
+            <xs:element minOccurs="1" maxOccurs="1" type="xs:float" name="user"/>
+            <xs:element minOccurs="1" maxOccurs="1" type="xs:float" name="sys"/>
+            <xs:element minOccurs="1" maxOccurs="1" type="xs:float" name="idle"/>
+            <xs:element minOccurs="1" maxOccurs="1" type="xs:float" name="combined"/>
+        </xs:sequence>
+    </xs:complexType>
+
+
+    <xs:complexType name="memoryType">
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" type="xs:int" name="ram"/>
+            <xs:element minOccurs="1" maxOccurs="1" type="xs:string" name="type"/>
+            <xs:element minOccurs="1" maxOccurs="1" type="xs:int" name="used"/>
+            <xs:element minOccurs="1" maxOccurs="1" type="xs:int" name="total"/>
+            <xs:element minOccurs="1" maxOccurs="1" type="xs:int" name="free"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="memoriesType">
+        <xs:choice>
+            <xs:element type="memoryType" name="memory" maxOccurs="unbounded" minOccurs="0"/>
+            <xs:element type="xs:string" name="systemError" minOccurs="0" maxOccurs="1"/>
+        </xs:choice>
+    </xs:complexType>
+</xs:schema>

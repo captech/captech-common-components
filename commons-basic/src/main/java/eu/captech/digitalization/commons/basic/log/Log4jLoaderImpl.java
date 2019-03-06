@@ -1,8 +1,8 @@
 //package eu.nets.datafangst.commons.basic.log;
 //
-//import eu.nets.datafangst.commons.basic.api.ILog4jLoader;
-//import eu.nets.datafangst.commons.basic.doc.Preamble;
-//import eu.nets.datafangst.commons.basic.exception.ExecutionException;
+//import eu.captech.digitalization.commons.basic.api.ILog4jLoader;
+//import eu.captech.digitalization.commons.basic.doc.Preamble;
+//import eu.captech.digitalization.commons.basic.exception.ExecutionException;
 //
 //import java.io.File;
 //import java.io.IOException;
@@ -24,7 +24,7 @@
 //    @Override
 //    public void loadProperties(Class clazz) {
 //        PropertyConfigurator.configure(defaultLog4jProperties());
-//        Logger logger = Logger.getLogger(clazz);
+//        Logger logger = LoggerFactory.getLogger(clazz);
 //        if (logger.isDebugEnabled()) {
 //            logger.debug("Log4j default properties loaded...");
 //        }

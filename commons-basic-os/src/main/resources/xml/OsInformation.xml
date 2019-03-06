@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<osInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation='OsInformation.xsd'>
+    <!--DF based Information-->
+    <dfInfo>
+        <status>50</status>
+        <fileSystems>
+            <fileSystem>
+                <info>
+                    <!--Size information is represented in MB-->
+                    <dirName>D:\</dirName>
+                    <devName>D:\</devName>
+                    <used>4718</used>
+                    <available>0</available>
+                    <total>4718</total>
+                    <percentage>100</percentage>
+                </info>
+            </fileSystem>
+            <fileSystem>
+                <info>
+                    <dirName>F:\</dirName>
+                    <devName>\\oslo\users\eme</devName>
+                </info>
+                <error>Unable to fetch File System Usage information for F:\ {devName=\\oslo\users\eme, dirName=F:\}
+                    Probable reason: Access is denied.
+                </error>
+            </fileSystem>
+            <fileSystem>
+                <info>
+                    <!--Size information is represented in MB-->
+                    <dirName>C:\</dirName>
+                    <devName>C:\</devName>
+                    <used>140704</used>
+                    <available>9910</available>
+                    <total>150614</total>
+                    <percentage>94</percentage>
+                </info>
+            </fileSystem>
+        </fileSystems>
+    </dfInfo>
+    <!--Cpu based Information-->
+    <cpuInfo>
+        <status>0</status>
+        <coreInfos>
+            <coreInfo>
+                <vendor>Intel</vendor>
+                <model>Core(TM) i7-2620M CPU @ 2.70GHz</model>
+                <mhz>2693</mhz>
+                <totalCpus>4</totalCpus>
+                <core>
+                    <id>0</id>
+                    <time>
+                        <!--Core time usage information is represented in % of the total amount of process time-->
+                        <user>3.2</user>
+                        <sys>3.2</sys>
+                        <idle>93.6</idle>
+                        <combined>6.4</combined>
+                    </time>
+                </core>
+            </coreInfo>
+            <coreInfo>
+                <vendor>Intel</vendor>
+                <model>Core(TM) i7-2620M CPU @ 2.70GHz</model>
+                <mhz>2693</mhz>
+                <totalCpus>4</totalCpus>
+                <core>
+                    <id>1</id>
+                    <time>
+                        <!--Core time usage information is represented in % of the total amount of process time-->
+                        <user>3.01</user>
+                        <sys>0</sys>
+                        <idle>96.99</idle>
+                        <combined>3.01</combined>
+                    </time>
+                </core>
+            </coreInfo>
+            <coreInfo>
+                <vendor>Intel</vendor>
+                <model>Core(TM) i7-2620M CPU @ 2.70GHz</model>
+                <mhz>2693</mhz>
+                <totalCpus>4</totalCpus>
+                <core>
+                    <id>2</id>
+                    <time>
+                        <!--Core time usage information is represented in % of the total amount of process time-->
+                        <user>0</user>
+                        <sys>3.01</sys>
+                        <idle>96.99</idle>
+                        <combined>3.01</combined>
+                    </time>
+                </core>
+            </coreInfo>
+            <coreInfo>
+                <vendor>Intel</vendor>
+                <model>Core(TM) i7-2620M CPU @ 2.70GHz</model>
+                <mhz>2693</mhz>
+                <totalCpus>4</totalCpus>
+                <core>
+                    <id>3</id>
+                    <time>
+                        <!--Core time usage information is represented in % of the total amount of process time-->
+                        <user>6.4</user>
+                        <sys>0</sys>
+                        <idle>93.6</idle>
+                        <combined>6.4</combined>
+                    </time>
+                </core>
+            </coreInfo>
+            <time>
+                <!--Core time usage information is represented in % of the total amount of process time-->
+                <user>8.49</user>
+                <sys>2.33</sys>
+                <idle>88.38</idle>
+                <combined>10.83</combined>
+            </time>
+        </coreInfos>
+    </cpuInfo>
+    <!--Memory based Information-->
+    <memoryInfo>
+        <status>0</status>
+        <memories>
+            <memory>
+                <!--In MB-->
+                <ram>8104</ram>
+                <type>mem</type>
+                <used>4647</used>
+                <total>8102</total>
+                <free>3454</free>
+            </memory>
+            <memory>
+                <!--In MB-->
+                <type>swap</type>
+                <used>5020</used>
+                <total>16202</total>
+                <free>11182</free>
+            </memory>
+        </memories>
+    </memoryInfo>
+</osInformation>

@@ -35,13 +35,14 @@ public class CommonsMediaTypeTest extends BasicCommonsTest {
 
     @Before
     public void setUp() throws Exception{
+        logger = getLoggerFor(this.getClass());
         super.preMethodSetup();
         logger = LoggerFactory.getLogger(getClass());
     }
 
     @After
-    public void tearDown() throws Exception{
-        super.tearDown();
+    public void tearDown() {
+        super.postMethodSetup();
     }
 
     @Test

@@ -20,29 +20,19 @@ public class ZipTest extends BasicCommonsTest {
     private static final Path TARGET = Paths.get("target");
     private static final Path ZIP_PATH = Paths.get("test.zip");
     private static Path SRC_DIR = Paths.get("src");
-    private Logger logger;
     private Zip zip;
 
     @Before
     public void setUp()
             throws Exception {
-        super.preMethodSetup();
         logger = getLoggerFor(this.getClass());
+        super.preMethodSetup();
         zip = new Zip();
-        if (logger.isInfoEnabled()) {
-            logger.info("****************************************************************");
-            logger.info("Starting preMethodSetup for " + this.getClass().getSimpleName());
-            logger.info("****************************************************************");
-        }
     }
 
     @After
-    public void postMethodSetup()
-            throws Exception {
-        logger.info("****************************************************************");
-        logger.info("Finishing postMethodSetup for " + this.getClass().getSimpleName());
-        logger.info("****************************************************************");
-        super.tearDown();
+    public void tearDown() {
+        super.postMethodSetup();
     }
 
     @Test

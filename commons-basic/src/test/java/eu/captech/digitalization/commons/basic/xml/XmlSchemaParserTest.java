@@ -56,6 +56,7 @@ public class XmlSchemaParserTest extends BasicCommonsTest {
 
     @Before
     public void setUp() throws Exception {
+        logger = getLoggerFor(this.getClass());
         super.preMethodSetup();
         logger = LoggerFactory.getLogger(this.getClass());
         iXsdXmlValidator = new XsdXmlValidatorImpl();
@@ -65,8 +66,8 @@ public class XmlSchemaParserTest extends BasicCommonsTest {
     }
 
     @After
-    public void tearDown() throws Exception {
-        super.tearDown();
+    public void tearDown() {
+        super.postMethodSetup();
     }
 
     @Test

@@ -30,6 +30,7 @@ public class XsdXmlValidatorImplTest extends BasicCommonsTest {
     @Before
     public void setUp()
             throws Exception {
+        logger = getLoggerFor(this.getClass());
         super.preMethodSetup();
         logger = getLoggerFor(this.getClass());
         logger.info("****************************************************************");
@@ -38,12 +39,8 @@ public class XsdXmlValidatorImplTest extends BasicCommonsTest {
     }
 
     @After
-    public void postMethodSetup()
-            throws Exception {
-        logger.info("****************************************************************");
-        logger.info("Finishing postMethodSetup for " + this.getClass().getSimpleName());
-        logger.info("****************************************************************");
-        super.tearDown();
+    public void tearDown() {
+        super.postMethodSetup();
     }
 
     @Test

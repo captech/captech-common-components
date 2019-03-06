@@ -1,12 +1,11 @@
 package eu.captech.digitalization.commons.basic.files.cer;
 
-import eu.captech.digitalization.commons.basic.prop.AbstractCommonsTest;
+import eu.captech.digitalization.commons.basic.BasicCommonsTest;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
-import org.slf4j.LoggerFactory;
 
 import javax.net.ssl.HttpsURLConnection;
 import java.io.BufferedReader;
@@ -25,8 +24,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class AbstractCertificateOperationsTest extends AbstractCommonsTest {
-    private static final String ARTIFACT_NAME = "commons-basic";
+public class AbstractCertificateOperationsTest extends BasicCommonsTest {
     private static final String CER_DATE = "06-06-2020";
     private static final SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("dd-MM-yyyy");
     private static final String CER_JKS = "cer/jks";
@@ -36,62 +34,89 @@ public class AbstractCertificateOperationsTest extends AbstractCommonsTest {
 
     @Before
     public void setUp() throws Exception {
-        setArtifactName(ARTIFACT_NAME);
-        super.setUp();
-        logger = LoggerFactory.getLogger(this.getClass());
+        logger = getLoggerFor(this.getClass());
+        super.preMethodSetup();
+        logger = getLoggerFor(this.getClass());
         tellerCertificate = new TellerCertificate();
         completionCertificate  = new CompletionCertificate();
     }
 
     @Test
-    public void getPassword() throws Exception {
-        Assert.assertTrue("Password mismatch.", tellerCertificate.getPassword().length == 7);
+    public void getPassword() {
+        String method = Thread.currentThread().getStackTrace()[1].getMethodName();
+        try {
+            startingTestMethod(method);
+            Assert.assertEquals("Password mismatch.", 7, tellerCertificate.getPassword().length);
+        }
+        finally {
+            finishingTestMethod(method);
+        }
     }
 
     @Test
     public void getX509Certificate() throws Exception {
+        String method = Thread.currentThread().getStackTrace()[1].getMethodName();
+        try {
+            startingTestMethod(method);
         X509Certificate x509Certificate = tellerCertificate.getX509Certificate(KeyStoreType.JKS, KeyStoreProvider.SUN);
         logger.info("--> " + new Date(x509Certificate.getNotAfter().getTime()));
         Assert.assertTrue("The certificate is not valid. Should be valid until (at least): Mon Jun 06 00:00:00 CEST 2016",
                           x509Certificate.getNotAfter().getTime() >= 1465164000000L);
         logger.info("*** Certificate valid until: " + x509Certificate.getNotAfter());
+        }
+        finally {
+            finishingTestMethod(method);
+        }
     }
 
     @Test
     public void isDateValid() throws NoSuchAlgorithmException, CertificateException, NoSuchProviderException,
                                      KeyStoreException, IOException, ParseException, eu.captech.digitalization.commons.basic.exception.CertificateException{
-        X509Certificate x509Certificate = tellerCertificate.getX509Certificate();
-        Assert.assertTrue("Certificate is obsolete.", tellerCertificate.isDateValid(x509Certificate, new Date(), 0));
-        Assert.assertTrue("Certificate is obsolete.", tellerCertificate.isDateValid(x509Certificate, new Date(), 15));
-        Assert.assertFalse("Certificate suppose to be obsolete.", tellerCertificate.isDateValid(x509Certificate, DATE_FORMAT.parse(CER_DATE), 15));
-        Assert.assertFalse("Certificate suppose to be obsolete.", tellerCertificate.isDateValid(x509Certificate, DATE_FORMAT.parse(CER_DATE), 0));
-        Assert.assertTrue("Certificate suppose to be valid.", tellerCertificate.isDateValidToday(x509Certificate));
-        Assert.assertFalse("Certificate suppose to be valid.", tellerCertificate.isDateValidToday(x509Certificate,
-                                                                                                tellerCertificate.getValidityDate(x509Certificate)));
+        String method = Thread.currentThread().getStackTrace()[1].getMethodName();
+        try {
+            startingTestMethod(method);
+            X509Certificate x509Certificate = tellerCertificate.getX509Certificate();
+            Assert.assertTrue("Certificate is obsolete.", tellerCertificate.isDateValid(x509Certificate, new Date(), 0));
+            Assert.assertTrue("Certificate is obsolete.", tellerCertificate.isDateValid(x509Certificate, new Date(), 15));
+            Assert.assertFalse("Certificate suppose to be obsolete.", tellerCertificate.isDateValid(x509Certificate, DATE_FORMAT.parse(CER_DATE), 15));
+            Assert.assertFalse("Certificate suppose to be obsolete.", tellerCertificate.isDateValid(x509Certificate, DATE_FORMAT.parse(CER_DATE), 0));
+            Assert.assertTrue("Certificate suppose to be valid.", tellerCertificate.isDateValidToday(x509Certificate));
+            Assert.assertFalse("Certificate suppose to be valid.", tellerCertificate.isDateValidToday(x509Certificate,
+                    tellerCertificate.getValidityDate(x509Certificate)));
+        }
+        finally {
+            finishingTestMethod(method);
+        }
     }
 
     @Test
     @Ignore("Integration Test")
     public void testConnect() {
-        String https_url = "https://online-test.bbs.no/archive-completion/datacapture";
-        setupSSL();
-        URL url;
+        String method = Thread.currentThread().getStackTrace()[1].getMethodName();
         try {
+            startingTestMethod(method);
+            String https_url = "https://online-test.bbs.no/archive-completion/datacapture";
+            setupSSL();
+            URL url;
+            try {
 
-            url = new URL(https_url);
-            HttpsURLConnection con = (HttpsURLConnection)url.openConnection();
+                url = new URL(https_url);
+                HttpsURLConnection con = (HttpsURLConnection)url.openConnection();
 
-            //dumpl all cert info
-            print_https_cert(con);
+                //dumpl all cert info
+                print_https_cert(con);
 
-            //dump all the content
-            print_content(con);
+                //dump all the content
+                print_content(con);
 
+            }
+            catch (IOException e) {
+                e.printStackTrace();
+            }
         }
-        catch (IOException e) {
-            e.printStackTrace();
+        finally {
+            finishingTestMethod(method);
         }
-
     }
 
 
@@ -101,8 +126,8 @@ public class AbstractCertificateOperationsTest extends AbstractCommonsTest {
     }
 
     @After
-    public void tearDown() throws Exception {
-        super.tearDown();
+    public void tearDown() {
+        super.postMethodSetup();
     }
 
     private void setupSSL() {

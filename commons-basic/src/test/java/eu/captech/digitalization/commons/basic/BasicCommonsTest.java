@@ -13,8 +13,16 @@ public class BasicCommonsTest extends AbstractCommonsTest{
     private static final String ARTIFACT_NAME = "commons-basic";
 
     public void preMethodSetup() throws Exception {
+        logger.info("****************************************************************");
+        logger.info("Starting preMethodSetup for {}", this.getClass().getSimpleName());
         setArtifactName(ARTIFACT_NAME);
         super.setUp();
+        logger.info("PreMethodSetup for {} finished", this.getClass().getSimpleName());
+    }
+
+    @Override
+    public void postMethodSetup() {
+        logger.info("Finishing postMethodSetup for {}", this.getClass().getSimpleName());
     }
 
     @Override

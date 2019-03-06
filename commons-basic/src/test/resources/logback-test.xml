@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration debug="false" scan="false" scanPeriod="10 seconds">
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{ISO8601} %highlight([%p]) [%file:%line] %m%n</pattern>
+            <immediateFlush>true</immediateFlush>
+            <charset>UTF-8</charset>
+        </encoder>
+    </appender>
+
+    <root level="warn">
+        <appender-ref ref="CONSOLE" />
+    </root>
+    <logger name="eu.captech.digitalization.commons" level="info" />
+
+    <logger name="org.springframework" level="warn" />
+    <logger name="org.eclipse" level="warn" />
+    <logger name="ch.qos.logback" level="warn" />
+</configuration>

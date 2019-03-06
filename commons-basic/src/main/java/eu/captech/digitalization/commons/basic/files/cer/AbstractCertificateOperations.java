@@ -62,7 +62,6 @@ public abstract class AbstractCertificateOperations {
         Date noAfter = getValidityDate(x509Certificate);
         Time cerTime = new Time(noAfter);
         Time dueTime = new Time(date);
-        logger.info("************************************************");
         logger.info("************ Certificate valid until: " + cerTime.getDate());
         logger.debug("************ The day today: " + dueTime.getDate());
         return cerTime.isAfter(dueTime);
@@ -72,7 +71,6 @@ public abstract class AbstractCertificateOperations {
         Date noAfter = getValidityDate(x509Certificate);
         Time cerTime = new Time(noAfter);
         Time dueTime = new Time(dueDate);
-        logger.info("************************************************");
         dueTime.setDay(dueTime.addDays(daysBeforeWarning));
         logger.info("Certificate valid until: " + cerTime.getDate());
         logger.info("The day today plus " + daysBeforeWarning + " days (warning buffer): " + dueTime.getDate());
