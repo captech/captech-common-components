@@ -35,7 +35,7 @@ public enum DuSniffer {
         /*
         Executes "du -s -b" for given directory
          */
-        DirUsage du = null;
+        DirUsage du;
         Sigar sigar = null;
         Shell shell = new Shell();
         try {

@@ -28,7 +28,7 @@ import static eu.captech.digitalization.commons.basic.operations.sniff.PsSniffer
         lastModified = "1/23/13"
 )
 public abstract class AbstractSnifferUtils {
-    public static final AtomicBoolean LIBRARY_PROPERTY_SET = new AtomicBoolean(false);
+    protected static final AtomicBoolean LIBRARY_PROPERTY_SET = new AtomicBoolean(false);
     protected static final Logger logger = LoggerFactory.getLogger(AbstractSnifferUtils.class);
 
     protected AbstractSnifferUtils() {
@@ -100,10 +100,6 @@ public abstract class AbstractSnifferUtils {
         return cpuSniffer.getCpuTimeByPid(pid);
     }
 
-    /**
-     * @return
-     * @throws ExecutionException
-     */
     public Map<String, Number> getJvmCpuTime() throws ExecutionException {
         return cpuSniffer.getJvmCpuTime();
     }
