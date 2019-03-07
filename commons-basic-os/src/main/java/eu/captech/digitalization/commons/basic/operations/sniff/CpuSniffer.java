@@ -2,7 +2,11 @@ package eu.captech.digitalization.commons.basic.operations.sniff;
 
 import eu.captech.digitalization.commons.basic.doc.Preamble;
 import eu.captech.digitalization.commons.basic.exception.ExecutionException;
-import org.hyperic.sigar.*;
+import org.hyperic.sigar.CpuInfo;
+import org.hyperic.sigar.CpuPerc;
+import org.hyperic.sigar.ProcCpu;
+import org.hyperic.sigar.Sigar;
+import org.hyperic.sigar.SigarException;
 import org.hyperic.sigar.cmd.Shell;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

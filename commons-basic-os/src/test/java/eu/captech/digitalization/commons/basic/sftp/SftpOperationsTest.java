@@ -4,7 +4,6 @@ import eu.captech.digitalization.commons.basic.api.AbstractOperationsTest;
 import eu.captech.digitalization.commons.basic.doc.Preamble;
 import eu.captech.digitalization.commons.basic.exceptions.OperationRuntimeException;
 import eu.captech.digitalization.commons.basic.file.operations.sftp.SftpOperations;
-
 import org.junit.Test;
 import org.slf4j.LoggerFactory;
 
@@ -12,7 +11,10 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.file.Paths;
 
-import static eu.captech.digitalization.commons.basic.file.operations.sftp.SftpOperations.*;
+import static eu.captech.digitalization.commons.basic.file.operations.sftp.SftpOperations.AT_SIGN_STRING;
+import static eu.captech.digitalization.commons.basic.file.operations.sftp.SftpOperations.OPERATIONS_PROTOCOL_SFTP;
+import static eu.captech.digitalization.commons.basic.file.operations.sftp.SftpOperations.OPTION_I_STRING;
+import static eu.captech.digitalization.commons.basic.file.operations.sftp.SftpOperations.OPTION_P_STRING;
 import static java.net.InetAddress.getLocalHost;
 
 @Preamble(

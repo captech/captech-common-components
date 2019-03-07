@@ -1,16 +1,19 @@
 package eu.captech.digitalization.commons.basic.operations;
 
+import eu.captech.digitalization.commons.basic.api.IOperations;
+import eu.captech.digitalization.commons.basic.exception.ExecutionException;
 import eu.captech.digitalization.commons.basic.exception.XmlException;
+import eu.captech.digitalization.commons.basic.exceptions.OperationRuntimeException;
+import eu.captech.digitalization.commons.basic.operations.sniff.CpuSniffer;
+import eu.captech.digitalization.commons.basic.operations.sniff.DfSniffer;
+import eu.captech.digitalization.commons.basic.operations.sniff.JvmSniffer;
+import eu.captech.digitalization.commons.basic.operations.sniff.MemSniffer;
+import eu.captech.digitalization.commons.basic.operations.sniff.SnifferUtils;
 import eu.captech.digitalization.commons.basic.xml.XmlContainer;
 import eu.captech.digitalization.commons.basic.xml.XmlSchemaParser;
 import eu.captech.digitalization.commons.basic.xml.XsdXmlValidatorImpl;
-import eu.captech.digitalization.commons.basic.api.IOperations;
-import eu.captech.digitalization.commons.basic.exception.ExecutionException;
-import eu.captech.digitalization.commons.basic.exceptions.OperationRuntimeException;
-import eu.captech.digitalization.commons.basic.operations.sniff.*;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang.SystemUtils;
-
 import org.hyperic.sigar.cmd.Shell;
 import org.jetbrains.annotations.Nullable;
 import org.slf4j.Logger;
@@ -26,7 +29,9 @@ import java.math.BigDecimal;
 import java.util.Map;
 
 import static eu.captech.digitalization.commons.basic.operations.sniff.JvmSniffer.jvmSniffer;
-import static eu.captech.digitalization.commons.basic.operations.sniff.MemSniffer.*;
+import static eu.captech.digitalization.commons.basic.operations.sniff.MemSniffer.JVM_MEMORY_TYPE;
+import static eu.captech.digitalization.commons.basic.operations.sniff.MemSniffer.MEM_MEMORY_TYPE;
+import static eu.captech.digitalization.commons.basic.operations.sniff.MemSniffer.SWAP_MEMORY_TYPE;
 
 public class OsOperations implements IOperations {
     private static final Logger logger = LoggerFactory.getLogger(OsOperations.class);

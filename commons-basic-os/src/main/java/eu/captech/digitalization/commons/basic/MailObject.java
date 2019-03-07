@@ -1,7 +1,6 @@
 package eu.captech.digitalization.commons.basic;
 
 import eu.captech.digitalization.commons.basic.doc.Preamble;
-
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.slf4j.Logger;

@@ -1,17 +1,18 @@
 package eu.captech.digitalization.commons.basic.api;
 
 import eu.captech.digitalization.commons.basic.doc.Preamble;
-import eu.captech.digitalization.commons.basic.prop.AbstractCommonsTest;
 import eu.captech.digitalization.commons.basic.file.operations.sftp.SftpOperations;
-
-
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.*;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -26,14 +27,14 @@ import java.util.List;
 )
 public class AbstractOperationsTest extends Assert {
     protected static final boolean IDEA = false;
-    protected static String WINDOWS_OS = "Windows";
+    private static String WINDOWS_OS = "Windows";
     protected static final char SPACE_CHAR = ' ';
     protected Logger logger = LoggerFactory.getLogger(this.getClass());
     protected String remoteDirectory = ".";
-    protected String remoteFileName = "testFile.xml";
-    protected String localFileName = "pom.xml";
+    private String remoteFileName = "testFile.xml";
+    private String localFileName = "pom.xml";
     protected IFileSystemOperations operations;
-    protected String os;
+    private String os;
 
     @Before
     public void setUp() throws Exception {

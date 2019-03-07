@@ -2,8 +2,10 @@ package eu.captech.digitalization.commons.basic.cer;
 
 import eu.captech.digitalization.commons.basic.BasicOsCommonsTest;
 import eu.captech.digitalization.commons.basic.api.IOperations;
-
-import org.junit.*;
+import org.junit.After;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
 import org.slf4j.LoggerFactory;
 
 import java.nio.file.Path;
@@ -11,7 +13,11 @@ import java.nio.file.Paths;
 
 import static eu.captech.digitalization.commons.basic.api.IOperations.EMPTY_STRING;
 import static eu.captech.digitalization.commons.basic.api.IOperations.OPERATIONS_PROTOCOL_KEYTOOL;
-import static eu.captech.digitalization.commons.basic.cer.CertificateOperations.*;
+import static eu.captech.digitalization.commons.basic.cer.CertificateOperations.CER_ALIAS_OPTION;
+import static eu.captech.digitalization.commons.basic.cer.CertificateOperations.KEY_STORE_OPTION;
+import static eu.captech.digitalization.commons.basic.cer.CertificateOperations.PROVIDER_NAME_OPTION;
+import static eu.captech.digitalization.commons.basic.cer.CertificateOperations.STORE_PASS_OPTION;
+import static eu.captech.digitalization.commons.basic.cer.CertificateOperations.STORE_TYPE_OPTION;
 import static eu.captech.digitalization.commons.basic.files.cer.KeyStoreProvider.SUN;
 import static eu.captech.digitalization.commons.basic.files.cer.KeyStoreType.JKS;
 

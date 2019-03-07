@@ -2,7 +2,6 @@ package eu.captech.digitalization.commons.basic.prop;
 
 import eu.captech.digitalization.commons.basic.BasicOsCommonsTest;
 import eu.captech.digitalization.commons.basic.doc.Preamble;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;

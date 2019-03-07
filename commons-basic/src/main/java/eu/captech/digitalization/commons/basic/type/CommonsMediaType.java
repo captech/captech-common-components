@@ -2,7 +2,11 @@ package eu.captech.digitalization.commons.basic.type;
 
 import eu.captech.digitalization.commons.basic.doc.Preamble;
 
-import java.util.*;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.TreeMap;
 
 @Preamble(
         lastModifiedBy = "Eduardo Melgar",

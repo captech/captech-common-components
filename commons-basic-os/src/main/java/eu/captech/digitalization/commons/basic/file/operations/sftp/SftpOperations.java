@@ -1,6 +1,9 @@
 package eu.captech.digitalization.commons.basic.file.operations.sftp;
 
-import ch.ethz.ssh2.*;
+import ch.ethz.ssh2.Connection;
+import ch.ethz.ssh2.SFTPv3Client;
+import ch.ethz.ssh2.SFTPv3DirectoryEntry;
+import ch.ethz.ssh2.SFTPv3FileHandle;
 import com.google.common.io.ByteStreams;
 import eu.captech.digitalization.commons.basic.api.AbstractFileSystemOperations;
 import eu.captech.digitalization.commons.basic.doc.Preamble;
@@ -11,12 +14,26 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.validation.constraints.NotNull;
-import java.io.*;
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 import java.util.regex.Pattern;
 
 @Preamble(

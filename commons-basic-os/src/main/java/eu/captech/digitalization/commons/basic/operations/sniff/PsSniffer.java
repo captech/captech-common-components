@@ -2,7 +2,13 @@ package eu.captech.digitalization.commons.basic.operations.sniff;
 
 import eu.captech.digitalization.commons.basic.doc.Preamble;
 import eu.captech.digitalization.commons.basic.exception.ExecutionException;
-import org.hyperic.sigar.*;
+import org.hyperic.sigar.ProcCredName;
+import org.hyperic.sigar.ProcMem;
+import org.hyperic.sigar.ProcState;
+import org.hyperic.sigar.ProcTime;
+import org.hyperic.sigar.ProcUtil;
+import org.hyperic.sigar.Sigar;
+import org.hyperic.sigar.SigarException;
 import org.hyperic.sigar.cmd.Shell;
 
 import java.text.SimpleDateFormat;

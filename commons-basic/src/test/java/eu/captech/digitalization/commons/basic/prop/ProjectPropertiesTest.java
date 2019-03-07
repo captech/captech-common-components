@@ -4,7 +4,9 @@ import org.junit.Test;
 
 import java.util.Properties;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 public class ProjectPropertiesTest {
     private static final String PROJECT_PROPERTIES = "/projects/commons-basic-artifact.properties";

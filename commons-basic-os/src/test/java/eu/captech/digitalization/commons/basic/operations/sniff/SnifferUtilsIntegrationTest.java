@@ -3,25 +3,45 @@ package eu.captech.digitalization.commons.basic.operations.sniff;
 import eu.captech.digitalization.commons.basic.BasicOsCommonsTest;
 import eu.captech.digitalization.commons.basic.doc.Preamble;
 import eu.captech.digitalization.commons.basic.exception.ExecutionException;
-
-import org.hyperic.sigar.*;
+import org.hyperic.sigar.ProcCpu;
+import org.hyperic.sigar.Sigar;
+import org.hyperic.sigar.SigarException;
+import org.hyperic.sigar.SigarProxy;
+import org.hyperic.sigar.SigarProxyCache;
 import org.hyperic.sigar.cmd.Ps;
 import org.hyperic.sigar.cmd.Shell;
-import org.junit.*;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Ignore;
+import org.junit.Rule;
+import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
 import javax.management.MBeanServer;
 import java.io.File;
-import java.lang.management.*;
+import java.lang.management.CompilationMXBean;
+import java.lang.management.ManagementFactory;
+import java.lang.management.MemoryMXBean;
+import java.lang.management.MemoryPoolMXBean;
+import java.lang.management.MemoryUsage;
+import java.lang.management.OperatingSystemMXBean;
+import java.lang.management.RuntimeMXBean;
+import java.lang.management.ThreadMXBean;
 import java.math.BigDecimal;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
-import java.util.*;
+import java.util.Arrays;
+import java.util.Date;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
 
 import static eu.captech.digitalization.commons.basic.operations.sniff.CpuSniffer.cpuSniffer;
 import static eu.captech.digitalization.commons.basic.operations.sniff.DfSniffer.DF_AVAILABLE;
-import static eu.captech.digitalization.commons.basic.operations.sniff.MemSniffer.*;
+import static eu.captech.digitalization.commons.basic.operations.sniff.MemSniffer.JVM_MEMORY_TYPE;
+import static eu.captech.digitalization.commons.basic.operations.sniff.MemSniffer.MEM_MEMORY_TYPE;
+import static eu.captech.digitalization.commons.basic.operations.sniff.MemSniffer.SWAP_MEMORY_TYPE;
 import static org.junit.rules.ExpectedException.none;
 
 @Preamble(

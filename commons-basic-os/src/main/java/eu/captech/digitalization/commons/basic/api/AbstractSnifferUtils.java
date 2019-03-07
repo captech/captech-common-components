@@ -2,7 +2,6 @@ package eu.captech.digitalization.commons.basic.api;
 
 import eu.captech.digitalization.commons.basic.doc.Preamble;
 import eu.captech.digitalization.commons.basic.exception.ExecutionException;
-
 import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,7 +15,10 @@ import static eu.captech.digitalization.commons.basic.operations.sniff.CpuSniffe
 import static eu.captech.digitalization.commons.basic.operations.sniff.DfSniffer.dfSniffer;
 import static eu.captech.digitalization.commons.basic.operations.sniff.DuSniffer.duSniffer;
 import static eu.captech.digitalization.commons.basic.operations.sniff.JvmSniffer.jvmSniffer;
-import static eu.captech.digitalization.commons.basic.operations.sniff.MemSniffer.*;
+import static eu.captech.digitalization.commons.basic.operations.sniff.MemSniffer.JVM_MEMORY_TYPE;
+import static eu.captech.digitalization.commons.basic.operations.sniff.MemSniffer.MEM_MEMORY_TYPE;
+import static eu.captech.digitalization.commons.basic.operations.sniff.MemSniffer.SWAP_MEMORY_TYPE;
+import static eu.captech.digitalization.commons.basic.operations.sniff.MemSniffer.memSniffer;
 import static eu.captech.digitalization.commons.basic.operations.sniff.PsSniffer.psSniffer;
 
 @Preamble(

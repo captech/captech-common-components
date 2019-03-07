@@ -9,10 +9,12 @@ import eu.captech.digitalization.commons.basic.operations.sniff.DfSniffer;
 import eu.captech.digitalization.commons.basic.operations.sniff.JvmSniffer;
 import eu.captech.digitalization.commons.basic.operations.sniff.MemSniffer;
 import eu.captech.digitalization.commons.basic.operations.sniff.SnifferUtils;
-
 import org.apache.commons.lang.SystemUtils;
-
-import org.junit.*;
+import org.junit.After;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Rule;
+import org.junit.Test;
 import org.junit.rules.ExpectedException;
 import org.slf4j.LoggerFactory;
 

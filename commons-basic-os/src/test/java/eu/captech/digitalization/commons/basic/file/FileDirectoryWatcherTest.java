@@ -3,12 +3,10 @@ package eu.captech.digitalization.commons.basic.file;
 import eu.captech.digitalization.commons.basic.BasicOsCommonsTest;
 import eu.captech.digitalization.commons.basic.exception.ExecutionException;
 import eu.captech.digitalization.commons.basic.files.io.PathOperations;
-
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.nio.file.Files;

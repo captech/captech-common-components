@@ -3,7 +3,6 @@ package eu.captech.digitalization.commons.basic.operations.sniff;
 import eu.captech.digitalization.commons.basic.doc.Preamble;
 import eu.captech.digitalization.commons.basic.exceptions.OperationRuntimeException;
 import eu.captech.digitalization.commons.basic.exceptions.ParameterException;
-
 import org.hyperic.sigar.FileSystem;
 import org.hyperic.sigar.FileSystemUsage;
 import org.hyperic.sigar.NfsFileSystem;
