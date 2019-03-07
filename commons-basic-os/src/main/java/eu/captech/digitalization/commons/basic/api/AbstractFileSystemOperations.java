@@ -36,4 +36,13 @@ public abstract class AbstractFileSystemOperations implements IFileSystemOperati
         return getInitialParameter().compareTo(o.getInitialParameter());
     }
 
+    protected int getNextValidValue(int i, String[] split) {
+        String value = split[i];
+        while (value.equals(EMPTY_STRING)) {
+            i = i + 1;
+            value = split[i];
+        }
+        return i;
+    }
+
 }

@@ -155,15 +155,6 @@ public class SftpOperations extends AbstractFileSystemOperations {
         }
     }
 
-    private int getNextValidValue(int i, String[] split) {
-        String value = split[i];
-        while (value.equals(EMPTY_STRING)) {
-            i = i + 1;
-            value = split[i];
-        }
-        return i;
-    }
-
     private boolean checkOption(String key, String value) {
         switch (key) {
             case OPTION_I_STRING:

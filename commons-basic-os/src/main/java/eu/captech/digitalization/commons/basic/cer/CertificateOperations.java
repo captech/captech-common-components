@@ -288,15 +288,6 @@ public class CertificateOperations extends AbstractCertificateOperations impleme
         return patternOptions.get(key).matcher(value).matches();
     }
 
-    private int getNextValidValue(int i, String[] split) {
-        String value = split[i];
-        while (value.equals(EMPTY_STRING)) {
-            i = i + 1;
-            value = split[i];
-        }
-        return i;
-    }
-
     protected final void printOperation() {
         if (logger.isInfoEnabled()) {
             logger.info("Operation: " + this.getClass().getSimpleName() + "\tInitialParameter: " + initialParameter);
