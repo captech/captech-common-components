@@ -3,7 +3,7 @@ package eu.captech.digitalization.commons.basic.file.operations.fs;
 import eu.captech.digitalization.commons.basic.api.AbstractFileSystemOperations;
 import eu.captech.digitalization.commons.basic.doc.Preamble;
 import eu.captech.digitalization.commons.basic.exception.ExecutionException;
-import eu.captech.digitalization.commons.basic.exceptions.OperationRuntimeException;
+import eu.captech.digitalization.commons.basic.exception.OperationRuntimeException;
 import eu.captech.digitalization.commons.basic.files.io.PathOperations;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

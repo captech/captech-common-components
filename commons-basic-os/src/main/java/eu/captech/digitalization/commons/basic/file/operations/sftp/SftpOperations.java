@@ -7,9 +7,9 @@ import ch.ethz.ssh2.SFTPv3FileHandle;
 import com.google.common.io.ByteStreams;
 import eu.captech.digitalization.commons.basic.api.AbstractFileSystemOperations;
 import eu.captech.digitalization.commons.basic.doc.Preamble;
-import eu.captech.digitalization.commons.basic.exceptions.OperationRuntimeException;
-import eu.captech.digitalization.commons.basic.exceptions.SftpException;
-import eu.captech.digitalization.commons.basic.exceptions.SftpRuntimeConnectionException;
+import eu.captech.digitalization.commons.basic.exception.OperationRuntimeException;
+import eu.captech.digitalization.commons.basic.exception.SftpException;
+import eu.captech.digitalization.commons.basic.exception.SftpRuntimeConnectionException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

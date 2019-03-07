@@ -3,8 +3,8 @@ package eu.captech.digitalization.commons.basic.cer;
 import eu.captech.digitalization.commons.basic.api.IOperations;
 import eu.captech.digitalization.commons.basic.doc.Preamble;
 import eu.captech.digitalization.commons.basic.exception.CertificateException;
-import eu.captech.digitalization.commons.basic.exceptions.CertificateRuntimeException;
-import eu.captech.digitalization.commons.basic.exceptions.OperationRuntimeException;
+import eu.captech.digitalization.commons.basic.exception.CertificateRuntimeException;
+import eu.captech.digitalization.commons.basic.exception.OperationRuntimeException;
 import eu.captech.digitalization.commons.basic.files.cer.AbstractCertificateOperations;
 import eu.captech.digitalization.commons.basic.files.cer.KeyStoreProvider;
 import eu.captech.digitalization.commons.basic.files.cer.KeyStoreType;
@@ -34,7 +34,7 @@ import static eu.captech.digitalization.commons.basic.files.cer.KeyStoreType.JKS
         creationTime = "1:25 PM",
         lastModified = "8/8/14"
 )
-public class CertificateOperations extends AbstractCertificateOperations implements IOperations{
+public class CertificateOperations extends AbstractCertificateOperations {
 
     private static final Logger logger = LoggerFactory.getLogger(CertificateOperations.class);
     public static final String KEY_STORE_OPTION = "-keystore";

@@ -1,6 +1,6 @@
 package eu.captech.digitalization.commons.basic.cer;
 
-import eu.captech.digitalization.commons.basic.BasicOsCommonsTest;
+import eu.captech.digitalization.commons.basic.BasicCommonsTest;
 import eu.captech.digitalization.commons.basic.api.IOperations;
 import org.junit.After;
 import org.junit.Assert;
@@ -21,11 +21,12 @@ import static eu.captech.digitalization.commons.basic.cer.CertificateOperations.
 import static eu.captech.digitalization.commons.basic.files.cer.KeyStoreProvider.SUN;
 import static eu.captech.digitalization.commons.basic.files.cer.KeyStoreType.JKS;
 
-public class CertificateOperationsTest extends BasicOsCommonsTest {
+public class CertificateOperationsTest extends BasicCommonsTest {
     private static final String DF_TELLER_CLIENT_KEY_STORE_JKS = "dfTellerClientKeyStore.jks";
     private static final String DFTELLERCLIENT_CERT_ALIAS = "dftellerclient";
     private static final String CER_PASSWORD = "LP2275w";
     private static final String CER_JKS = "cer/jks";
+    private static final char SPACE_CHAR = ' ';
     private String initialParameter;
     private IOperations operations;
 
@@ -33,7 +34,6 @@ public class CertificateOperationsTest extends BasicOsCommonsTest {
     public void setUp() throws Exception {
         logger = getLoggerFor(this.getClass());
         super.preMethodSetup();
-        logger = LoggerFactory.getLogger(this.getClass().getSimpleName());
         Path keyStore = Paths.get(testResources.toString(), CER_JKS, DF_TELLER_CLIENT_KEY_STORE_JKS);
         initialParameter = OPERATIONS_PROTOCOL_KEYTOOL + SPACE_CHAR + KEY_STORE_OPTION +
                 SPACE_CHAR + keyStore.toString() + SPACE_CHAR + STORE_TYPE_OPTION + SPACE_CHAR + JKS +

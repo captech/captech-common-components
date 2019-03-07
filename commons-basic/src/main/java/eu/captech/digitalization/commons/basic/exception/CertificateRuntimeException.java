@@ -1,4 +1,4 @@
-package eu.captech.digitalization.commons.basic.exceptions;
+package eu.captech.digitalization.commons.basic.exception;
 
 import eu.captech.digitalization.commons.basic.doc.Preamble;
 

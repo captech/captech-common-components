@@ -2,7 +2,7 @@ package eu.captech.digitalization.commons.basic.sftp;
 
 import eu.captech.digitalization.commons.basic.api.AbstractOperationsTest;
 import eu.captech.digitalization.commons.basic.doc.Preamble;
-import eu.captech.digitalization.commons.basic.exceptions.OperationRuntimeException;
+import eu.captech.digitalization.commons.basic.exception.OperationRuntimeException;
 import eu.captech.digitalization.commons.basic.file.operations.sftp.SftpOperations;
 import org.junit.Test;
 import org.slf4j.LoggerFactory;

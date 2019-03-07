@@ -1,5 +1,6 @@
 package eu.captech.digitalization.commons.basic.files.cer;
 
+import eu.captech.digitalization.commons.basic.api.IOperations;
 import eu.captech.digitalization.commons.basic.doc.Preamble;
 import eu.captech.digitalization.commons.basic.exception.CertificateException;
 import eu.captech.digitalization.commons.basic.utils.io.time.Time;
@@ -25,12 +26,21 @@ import static eu.captech.digitalization.commons.basic.files.cer.KeyStoreType.JKS
         creationTime = "11:32 AM",
         lastModified = "8/8/14"
 )
-public abstract class AbstractCertificateOperations {
+public abstract class AbstractCertificateOperations implements IOperations {
     private static final Logger logger = LoggerFactory.getLogger(AbstractCertificateOperations.class);
 
     public abstract char[] getPassword();
     public abstract String getCertificateAlias();
     public abstract Path getKeyStorePath();
+
+    protected int getNextValidValue(int i, String[] split) {
+        String value = split[i];
+        while (value.equals(EMPTY_STRING)) {
+            i = i + 1;
+            value = split[i];
+        }
+        return i;
+    }
 
     public final X509Certificate getX509Certificate()
             throws IOException, NoSuchProviderException, KeyStoreException, NoSuchAlgorithmException,

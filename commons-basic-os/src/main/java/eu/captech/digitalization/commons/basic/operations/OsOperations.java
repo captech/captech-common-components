@@ -3,7 +3,7 @@ package eu.captech.digitalization.commons.basic.operations;
 import eu.captech.digitalization.commons.basic.api.IOperations;
 import eu.captech.digitalization.commons.basic.exception.ExecutionException;
 import eu.captech.digitalization.commons.basic.exception.XmlException;
-import eu.captech.digitalization.commons.basic.exceptions.OperationRuntimeException;
+import eu.captech.digitalization.commons.basic.exception.OperationRuntimeException;
 import eu.captech.digitalization.commons.basic.operations.sniff.CpuSniffer;
 import eu.captech.digitalization.commons.basic.operations.sniff.DfSniffer;
 import eu.captech.digitalization.commons.basic.operations.sniff.JvmSniffer;

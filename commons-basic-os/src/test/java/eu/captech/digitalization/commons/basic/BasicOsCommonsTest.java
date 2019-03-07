@@ -11,7 +11,6 @@ import eu.captech.digitalization.commons.basic.prop.AbstractCommonsTest;
 )
 public abstract class BasicOsCommonsTest extends AbstractCommonsTest {
     private static final String ARTIFACT_NAME = "commons-basic-os";
-    protected static final char SPACE_CHAR = ' ';
 
     @Override
     public void preMethodSetup()

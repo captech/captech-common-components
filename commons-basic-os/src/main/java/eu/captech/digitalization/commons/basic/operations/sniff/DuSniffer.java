@@ -24,16 +24,12 @@ public enum DuSniffer {
     private static final Logger logger = LoggerFactory.getLogger(DuSniffer.class);
 
     public long getDiskUsage(@NotNull Path dir) throws ExecutionException {
-        if (dir == null) {
-            logger.warn("Passed Path is null");
-            return 0;
-        }
         if (!Files.exists(dir)) {
             logger.warn("Path " + dir + " doesn't exists");
             return 0;
         }
         if (!Files.isDirectory(dir)) {
-            logger.warn("Path " + dir + " is not a directory");
+            logger.info("Path " + dir + " is not a directory");
             return 0;
         }
         /*
